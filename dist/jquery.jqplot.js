@@ -9139,7 +9139,8 @@
 
             for (var i=0; i<wl; i++) {
                 w += words[i];
-                if (context.measureText(w).width > tagwidth) {
+                /* Bugfix by ef4, https://bitbucket.org/cleonello/jqplot/pull-request/69 */
+                if (context.measureText(w).width > tagwidth && w.length > words[i].length) {
                     breaks.push(i);
                     w = '';
                     i--;
